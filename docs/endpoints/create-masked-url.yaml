@@ -1,0 +1,21 @@
+post:
+  summary: Endpoint POST para crear link a partir de una URL válida y tiene que devolver un JSON con la URL enmascarada a utilizar
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../components/requestBodies.yaml#/req-body-create-url'
+  responses:
+    '200':
+      description: masked url created successfully
+      content:
+        application/json:
+          schema:
+            $ref: '../components/responses.yaml#/res-create-url-status-200'
+    '400':
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            $ref: '../components/responses.yaml#/res-create-url-status-400'          

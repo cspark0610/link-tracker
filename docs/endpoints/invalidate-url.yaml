@@ -1,0 +1,12 @@
+put:
+  summary: Endpoint PUT para invalidar un link
+  parameters:
+    - $ref: '../components/parameters.yaml#/codeUrlParam'
+    - $ref: '../components/parameters.yaml#/passwordQuery'
+  responses:
+    '200':
+      description: masked url invalidated successfully
+      content:
+        application/json:
+          schema:
+            $ref: '../components/responses.yaml#/res-invalidate-url-status-200'  

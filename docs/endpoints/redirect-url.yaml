@@ -1,0 +1,8 @@
+get:
+  summary: Endpoint GET que redirecciona a un link
+  parameters:
+    - $ref: '../components/parameters.yaml#/codeUrlParam'
+    - $ref: '../components/parameters.yaml#/passwordQuery'
+  responses:
+    '302':
+      description: redirecting to url

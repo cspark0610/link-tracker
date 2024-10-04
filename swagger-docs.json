@@ -1,0 +1,231 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Express Nest TS API",
+    "version": "1.0.0",
+    "description": "API documentation for Express Nest TS API template"
+  },
+  "externalDocs": {
+    "description": "Find out more about Nest",
+    "url": "https://www.nest.io"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080",
+      "description": "Development server"
+    },
+    {
+      "url": "https://api.example.com",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/create": {
+      "post": {
+        "summary": "Endpoint POST para crear link a partir de una URL válida y tiene que devolver un JSON con la URL enmascarada a utilizar",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "title": "Create masked url",
+                "description": "create masked url body request",
+                "properties": {
+                  "url": {
+                    "type": "string",
+                    "example": "https://www.fierastudio.com"
+                  }
+                },
+                "required": [
+                  "url"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "masked url created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "target": {
+                      "type": "string",
+                      "example": "https://www.fierastudio.com"
+                    },
+                    "link": {
+                      "type": "string",
+                      "example": "http://localhost:8080/l/abc123"
+                    },
+                    "valid": {
+                      "type": "boolean",
+                      "example": true
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer",
+                      "example": 400
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Bad request"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/l/:codeUrl": {
+      "put": {
+        "summary": "Endpoint PUT para invalidar un link",
+        "parameters": [
+          {
+            "name": "codeUrl",
+            "description": "Código de la URL",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "examples": {
+              "example1": {
+                "value": "QTwlge"
+              }
+            }
+          },
+          {
+            "name": "password",
+            "description": "Contraseña asociada a la url enmascarada",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "examples": {
+              "example1": {
+                "value": "7ec5517d160c82470e2c6f4e7f527efd:127da1332a8c57c62ae46b988824016271716c778856653de1e88154ac79c129"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "masked url invalidated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "link": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/:codeUrl/stats": {
+      "get": {
+        "summary": "Endpoint GET que devuelve la cantidad de veces que fue redireccionado un link",
+        "parameters": [
+          {
+            "name": "codeUrl",
+            "description": "Código de la URL",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "examples": {
+              "example1": {
+                "value": "QTwlge"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "masked url stats",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "redirections": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/l/:codeUrl?password={password}": {
+      "get": {
+        "summary": "Endpoint GET que redirecciona a un link",
+        "parameters": [
+          {
+            "name": "codeUrl",
+            "description": "Código de la URL",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "examples": {
+              "example1": {
+                "value": "QTwlge"
+              }
+            }
+          },
+          {
+            "name": "password",
+            "description": "Contraseña asociada a la url enmascarada",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "examples": {
+              "example1": {
+                "value": "7ec5517d160c82470e2c6f4e7f527efd:127da1332a8c57c62ae46b988824016271716c778856653de1e88154ac79c129"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "302": {
+            "description": "redirecting to url"
+          }
+        }
+      }
+    }
+  }
+}

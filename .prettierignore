@@ -1,0 +1,11 @@
+README.md
+node_modules/
+package-lock.json
+.eslintrc.*
+dist/
+.depcheckrc.json
+
+CHANGELOG.md
+Dockerfile
+coverage/
+.bitbucket/

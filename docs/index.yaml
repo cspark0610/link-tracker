@@ -1,0 +1,26 @@
+openapi: 3.0.0
+
+info:
+  title: Express Nest TS API
+  version: 1.0.0
+  description: API documentation for Express Nest TS API template
+
+externalDocs:
+  description: Find out more about Nest
+  url: https://www.nest.io
+
+servers:
+  - url: http://localhost:8080
+    description: Development server
+  - url: https://api.example.com
+    description: Production server
+
+paths:
+  '/create':
+    $ref: './endpoints/create-masked-url.yaml'
+  '/l/:codeUrl':
+    $ref: './endpoints/invalidate-url.yaml'
+  '/:codeUrl/stats':
+    $ref: './endpoints/url-stats.yaml'
+  '/l/:codeUrl?password={password}':
+    $ref: './endpoints/redirect-url.yaml'

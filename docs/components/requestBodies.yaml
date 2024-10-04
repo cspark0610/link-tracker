@@ -1,0 +1,9 @@
+req-body-create-url:
+  title: Create masked url
+  description: create masked url body request
+  properties:
+    url:
+      type: string
+      example: https://www.fierastudio.com
+  required: 
+    - url

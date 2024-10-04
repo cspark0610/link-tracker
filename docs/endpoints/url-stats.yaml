@@ -1,0 +1,11 @@
+get:
+  summary: Endpoint GET que devuelve la cantidad de veces que fue redireccionado un link
+  parameters:
+    - $ref: '../components/parameters.yaml#/codeUrlParam'
+  responses:
+    '200':
+      description: masked url stats
+      content:
+        application/json:
+          schema:
+            $ref: '../components/responses.yaml#/res-url-stats-status-200' 

@@ -1,0 +1,20 @@
+codeUrlParam:
+  name: codeUrl
+  description: Código de la URL
+  in: path
+  required: true
+  schema:
+    type: string
+  examples:
+    example1:
+      value: QTwlge
+passwordQuery:
+  name: password
+  description: Contraseña asociada a la url enmascarada
+  in: query
+  required: true
+  schema:
+    type: string
+  examples:
+    example1:
+      value: 7ec5517d160c82470e2c6f4e7f527efd:127da1332a8c57c62ae46b988824016271716c778856653de1e88154ac79c129
