@@ -6,6 +6,7 @@ import { ConfigService } from '@nestjs/config';
 import { REQUEST } from '@nestjs/core';
 import type { Request } from 'express';
 import { CreateUrlResponse } from './dto/create-url.response';
+import { Time } from '../utils/time';
 
 @Injectable({ scope: Scope.REQUEST })
 export class LinksService {
@@ -19,7 +20,7 @@ export class LinksService {
       const baseUrl = this.getBaseUrl();
       const maskedUrl = SecurityUtils.generateMaskedUrl(baseUrl);
       const password = SecurityUtils.generatePassword();
-      const expiresAt = Date.now() + this.configService.get<number>('LINK_EXPIRATION_TIME');
+      const expiresAt = Time.getExpirationTimeMs(this.configService.get<number>('LINK_EXPIRATION_TIME'));
 
       const response: CreateUrlResponse = {
         target: url,
