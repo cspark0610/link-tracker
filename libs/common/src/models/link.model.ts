@@ -1,6 +1,6 @@
 import { AbstractDocument } from '@app/common';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-// extends AbstractDocument
+
 @Schema({ versionKey: false })
 export class LinkDocument extends AbstractDocument {
   @Prop({ required: true })

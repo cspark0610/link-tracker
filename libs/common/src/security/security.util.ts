@@ -1,18 +1,10 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-import { createCipheriv, createHash, randomBytes } from 'crypto';
+import { createHash, randomBytes } from 'crypto';
 const { nanoid } = require('fix-esm').require('nanoid');
 
 export class SecurityUtils {
   static generateMaskedUrl(baseUrl: string): string {
     return `${baseUrl}/l/${nanoid(6)}`;
-  }
-
-  static encrypt(url: string): string {
-    const secretKey = randomBytes(32);
-    const iv = randomBytes(16);
-    const cipher = createCipheriv('aes-256-ctr', secretKey, iv);
-    const encrypted = Buffer.concat([cipher.update(url), cipher.final()]);
-    return encrypted.toString('hex');
   }
 
   static generatePassword(): string {

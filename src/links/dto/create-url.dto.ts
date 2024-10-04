@@ -4,7 +4,4 @@ export class CreateMaskUrlDto {
   @IsString()
   @IsUrl(undefined, { message: 'Url is not valid.' })
   url: string;
-
-  // password: string;
-  // expiresIn?: number;
 }
