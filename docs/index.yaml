@@ -22,5 +22,5 @@ paths:
     $ref: './endpoints/invalidate-url.yaml'
   '/:codeUrl/stats':
     $ref: './endpoints/url-stats.yaml'
-  '/l/:codeUrl?password={password}':
+  '/l/:codeUrl?password=':
     $ref: './endpoints/redirect-url.yaml'
