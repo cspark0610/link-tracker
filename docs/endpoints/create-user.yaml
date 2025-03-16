@@ -1,0 +1,15 @@
+post:
+  tags:
+    - users
+  summary: sign up endpoint creates user
+  requestBody:
+    required: true
+    content:
+      application/json:
+        $ref: '../components/requestBodies.yaml#/req-body-login'
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: '../components/responses.yaml#/res-login-status-200'

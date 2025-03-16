@@ -1,31 +1,31 @@
 res-create-url-status-200:
   type: object
   properties:
-    target: 
+    target:
       type: string
       example: https://www.fierastudio.com
-    link: 
+    link:
       type: string
       example: http://localhost:8080/l/abc123
     valid:
       type: boolean
-      example: true  
+      example: true
 
 res-invalidate-url-status-200:
   type: object
   properties:
-    success: 
+    success:
       type: boolean
-    message: 
+    message:
       type: string
     link:
-      type: string 
+      type: string
 
 res-url-stats-status-200:
   type: object
   properties:
-    redirections: 
-      type: number     
+    redirections:
+      type: number
 
 res-create-url-status-400:
   type: object
@@ -36,3 +36,22 @@ res-create-url-status-400:
     message:
       type: string
       example: Bad request
+
+res-login-status-200:
+  type: object
+  properties:
+    _id:
+      type: string
+      example: eyJhbGciOiJIUzI1NiIsInR5cCI69
+    email:
+      type: string
+      example: a@a.com
+    password:
+      type: string
+      example: $2a$10$3
+res-logout-status-200:
+  type: object
+  properties:
+    message:
+      type: string
+      example: Logout successful

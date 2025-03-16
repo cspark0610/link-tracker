@@ -2,6 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ConfigService } from '@nestjs/config';
 import { Logger } from 'nestjs-pino';
+import * as cookieParser from 'cookie-parser';
 
 function isNotProduction(): boolean {
   return process.env.NODE_ENV !== 'production';
@@ -12,6 +13,7 @@ async function bootstrap() {
   const configService = app.get(ConfigService);
   const PORT = configService.get<number>('PORT') || 3000;
 
+  app.use(cookieParser());
   app.useLogger(app.get(Logger));
 
   if (isNotProduction()) {

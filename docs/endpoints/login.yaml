@@ -1,0 +1,16 @@
+post:
+  tags:
+    - auth
+  summary: Endpoint POST to login into app
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../components/requestBodies.yaml#/req-body-login'
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: '../components/responses.yaml#/res-login-status-200'

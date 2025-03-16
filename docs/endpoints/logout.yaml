@@ -1,0 +1,10 @@
+post:
+  tags:
+    - auth
+  summary: Endpoint POST to logout
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: '../components/responses.yaml#/res-logout-status-200'

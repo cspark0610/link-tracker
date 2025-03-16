@@ -1,0 +1,20 @@
+delete:
+  tags:
+    - users
+  summary: Delete a user from DB
+  description: Delete a user by ID
+  operationId: deleteUser
+  parameters:
+    - name: id
+      in: path
+      description: ID of the user to delete
+      required: true
+      schema:
+        type: string
+        example: 5f7f1b7b-6b7b-4b7b-8b7b-9f7f1b7b6b7b
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: '../components/responses.yaml#/res-login-status-200'

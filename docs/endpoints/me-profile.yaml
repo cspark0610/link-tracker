@@ -1,0 +1,10 @@
+get:
+  tags:
+    - users
+  summary: get logged in user profile information
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: '../components/responses.yaml#/res-login-status-200'

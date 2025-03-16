@@ -5,5 +5,18 @@ req-body-create-url:
     url:
       type: string
       example: https://www.fierastudio.com
-  required: 
+  required:
     - url
+req-body-login:
+  title: Login
+  description: login body request
+  properties:
+    email:
+      type: string
+      example: a@a.com
+    password:
+      type: string
+      example: '12345678'
+  required:
+    - email
+    - password
